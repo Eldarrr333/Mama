@@ -46,7 +46,7 @@
       transform: translateY(-100vh);
       transition: transform 2s ease, opacity 2s ease;
       line-height: 1.8;
-      white-space: pre-line; /* WICHTIG für echte Zeilenumbrüche */
+      white-space: pre-line;
       display: none;
     }
 
@@ -73,6 +73,9 @@ Danke, dass du so eine wunderbare Mutter bist.
 Ich liebe dich mehr, als Worte es je ausdrücken könnten. 💐❤️
   </div>
 
+  <!-- 🎵 Musik-Datei -->
+  <audio id="backgroundMusic" src="https://cdn.pixabay.com/audio/2023/03/05/audio_92a85e3cc3.mp3" preload="auto"></audio>
+
   <script>
     function zeigeLiebesText() {
       const textBlock = document.getElementById("textBlock");
@@ -85,6 +88,14 @@ Ich liebe dich mehr, als Worte es je ausdrücken könnten. 💐❤️
       setTimeout(() => {
         window.scrollTo({ top: textBlock.offsetTop, behavior: "smooth" });
       }, 2200);
+
+      // Musik abspielen
+      const music = document.getElementById("backgroundMusic");
+      music.play().catch(() => {
+        console.log("Musik konnte nicht automatisch abgespielt werden.");
+      });
+      music.loop = true;
+      music.volume = 0.4;
     }
   </script>
 </body>
