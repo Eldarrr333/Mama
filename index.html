@@ -7,17 +7,21 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom right, #ffcce0, #ffe6f0);
-      background-image: url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1950&q=80');
+      background: linear-gradient(to bottom right, #ffcce0, #ffe6f0),
+                  url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1950&q=80');
       background-size: cover;
       background-position: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      min-height: 200vh; /* Seite wird doppelt so hoch – dadurch scrollbar */
+    }
+
+    .container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
     }
 
     .heart {
@@ -53,8 +57,13 @@
   </style>
 </head>
 <body>
-  <div class="heart" onclick="zeigeLiebesText()">❤️</div>
-  <div id="liebessatz" class="message hidden">Mama, ich habe dich lieb 💖</div>
+  <div class="container">
+    <div class="heart" onclick="zeigeLiebesText()">❤️</div>
+    <div id="liebessatz" class="message hidden">Mama, ich habe dich lieb 💖</div>
+  </div>
+
+  <!-- Unten ist einfach Platz zum Scrollen -->
+  <div style="height: 100vh;"></div>
 
   <script>
     function zeigeLiebesText() {
