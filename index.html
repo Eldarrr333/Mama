@@ -55,6 +55,7 @@
       max-width: 80%;
       margin-left: auto;
       margin-right: auto;
+      opacity: 0;
     }
 
     @keyframes pulse {
@@ -67,6 +68,27 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* Animation für den Tipp-Effekt */
+    @keyframes typing {
+      0% { width: 0; }
+      100% { width: 100%; }
+    }
+
+    /* Animierte Schrift, um sie erscheinen zu lassen */
+    .typing {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #d00050;
+      animation: typing 5s steps(40) 1s forwards, blink 0.75s step-end infinite;
+    }
+
+    /* Blinken des Cursors */
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
   </style>
 </head>
 <body>
@@ -76,15 +98,27 @@
   </div>
 
   <!-- Platz zum Scrollen -->
-  <div class="love-text">
-    <p>Liebe Mama, du bist das Beste, was mir je passiert ist. Du hast mir immer gezeigt, was wahre Liebe und Fürsorge bedeuten. Du bist immer für mich da, und deine Stärke inspiriert mich jeden Tag. Ich danke dir für alles, was du für mich getan hast, und dafür, dass du so eine wunderbare Mutter bist. Ich liebe dich mehr, als Worte es je ausdrücken könnten. 💐❤️</p>
+  <div id="textBlock" class="love-text">
+    <p class="typing">Liebe Mama, du bist das Beste, was mir je passiert ist. Du hast mir immer gezeigt, was wahre Liebe und Fürsorge bedeuten. Du bist immer für mich da, und deine Stärke inspiriert mich jeden Tag. Ich danke dir für alles, was du für mich getan hast, und dafür, dass du so eine wunderbare Mutter bist. Ich liebe dich mehr, als Worte es je ausdrücken könnten. 💐❤️</p>
   </div>
 
   <script>
     function zeigeLiebesText() {
       const nachricht = document.getElementById("liebessatz");
       nachricht.classList.remove("hidden");
+
+      // Text animieren
+      const textBlock = document.getElementById("textBlock");
+      textBlock.style.opacity = 1;
+      
+      // Automatisch nach unten scrollen, wenn der Text erscheint
+      setTimeout(() => {
+        window.scrollTo({ top: textBlock.offsetTop, behavior: "smooth" });
+      }, 5000); // Scrollt nach 5 Sekunden (wenn der Text vollständig erscheint)
     }
   </script>
+</body>
+</html>
+
 </body>
 </html>
