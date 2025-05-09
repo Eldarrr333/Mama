@@ -13,7 +13,7 @@
       background-position: center;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
-      min-height: 200vh; /* Seite wird doppelt so hoch – dadurch scrollbar */
+      min-height: 200vh;
     }
 
     .container {
@@ -48,7 +48,7 @@
       margin-top: 100px;
       font-size: 30px;
       color: #d00050;
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.8);
       padding: 20px 30px;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -56,8 +56,11 @@
       margin-left: auto;
       margin-right: auto;
       opacity: 0;
-      transform: translateY(-100vh); /* Startet oben */
-      animation: slideDown 3s forwards; /* Bewegt sich nach unten */
+      transform: translateY(-100vh);
+      animation: slideDown 3s forwards;
+      line-height: 1.6;         /* Zeilenhöhe für bessere Lesbarkeit */
+      word-wrap: break-word;    /* Wörter umbrechen */
+      white-space: normal;      /* Ganz wichtig: Text soll umbrechen! */
     }
 
     @keyframes pulse {
@@ -71,14 +74,13 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Animation für den nach unten fallenden Text */
     @keyframes slideDown {
       from {
-        transform: translateY(-100vh); /* Text beginnt oben außerhalb des Bildschirms */
+        transform: translateY(-100vh);
         opacity: 0;
       }
       to {
-        transform: translateY(0); /* Text endet normal in der Mitte */
+        transform: translateY(0);
         opacity: 1;
       }
     }
@@ -91,9 +93,16 @@
     <div id="liebessatz" class="message hidden">Mama, ich habe dich lieb 💖</div>
   </div>
 
-  <!-- Platz zum Scrollen -->
   <div id="textBlock" class="love-text">
-    <p>Liebe Mama, du bist das Beste, was mir je passiert ist. Du hast mir immer gezeigt, was wahre Liebe und Fürsorge bedeuten. Du bist immer für mich da, und deine Stärke inspiriert mich jeden Tag. Ich danke dir für alles, was du für mich getan hast, und dafür, dass du so eine wunderbare Mutter bist. Ich liebe dich mehr, als Worte es je ausdrücken könnten. 💐❤️</p>
+    <p>
+      Liebe Mama,  
+      du bist das Beste, was mir je passiert ist.  
+      Du hast mir immer gezeigt, was wahre Liebe und Fürsorge bedeuten.  
+      Du bist immer für mich da, und deine Stärke inspiriert mich jeden Tag.  
+      Ich danke dir für alles, was du für mich getan hast,  
+      und dafür, dass du so eine wunderbare Mutter bist.  
+      Ich liebe dich mehr, als Worte es je ausdrücken könnten. 💐❤️
+    </p>
   </div>
 
   <script>
@@ -101,15 +110,16 @@
       const nachricht = document.getElementById("liebessatz");
       nachricht.classList.remove("hidden");
 
-      // Text animieren und nach unten bewegen
       const textBlock = document.getElementById("textBlock");
       textBlock.style.opacity = 1;
-      
-      // Automatisch nach unten scrollen, wenn der Text erscheint
+
       setTimeout(() => {
         window.scrollTo({ top: textBlock.offsetTop, behavior: "smooth" });
-      }, 3000); // Scrollt nach 3 Sekunden (wenn der Text nach unten gefallen ist)
+      }, 3000);
     }
   </script>
+</body>
+</html>
+
 </body>
 </html>
