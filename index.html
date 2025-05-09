@@ -82,7 +82,8 @@ Danke, dass du so eine wunderbare Mutter bist.
 Ich liebe dich mehr, als Worte es je ausdrücken könnten. 💐❤️
   </div>
 
-  <audio id="backgroundMusic" src="https://cdn.pixabay.com/audio/2023/03/05/audio_92a85e3cc3.mp3" preload="auto"></audio>
+  <!-- 🎵 Ruhige und sanfte Hintergrundmusik -->
+  <audio id="backgroundMusic" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9b4e5d8f5a.mp3?filename=calm-piano-ambient-11370.mp3" preload="auto"></audio>
 
   <script>
     function zeigeLiebesText() {
@@ -97,6 +98,7 @@ Ich liebe dich mehr, als Worte es je ausdrücken könnten. 💐❤️
         window.scrollTo({ top: textBlock.offsetTop, behavior: "smooth" });
       }, 2200);
 
+      // Musik abspielen
       const music = document.getElementById("backgroundMusic");
       music.play().catch(() => {
         console.log("Musik konnte nicht automatisch abgespielt werden.");
