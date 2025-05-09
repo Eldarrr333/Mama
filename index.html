@@ -8,7 +8,7 @@
       margin: 0;
       padding: 0;
       background-image: linear-gradient(rgba(255,240,245,0.9), rgba(255,200,220,0.9)),
-                        url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1950&q=80');
+        url('https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1950&q=80');
       background-size: cover;
       background-position: center;
       display: flex;
@@ -16,38 +16,37 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: Arial, sans-serif;
       text-align: center;
     }
 
     .heart {
-      font-size: 240px;
+      font-size: 220px;
+      cursor: pointer;
       animation: pulse 1.5s infinite;
       text-shadow: 0 0 20px rgba(255, 0, 100, 0.6);
-      cursor: pointer;
     }
 
     .text {
-      font-size: 32px;
-      color: #a0005c;
+      font-size: 28px;
+      color: #b0005c;
+      background: rgba(255,255,255,0.8);
+      padding: 12px 20px;
       margin-top: 20px;
-      font-weight: bold;
-      background: rgba(255, 255, 255, 0.7);
-      padding: 10px 20px;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
     }
 
     .message {
-      margin-top: 30px;
-      font-size: 28px;
-      color: #b0005c;
-      font-weight: bold;
       display: none;
-      background: rgba(255, 255, 255, 0.8);
+      margin-top: 30px;
+      font-size: 26px;
+      color: #d00050;
+      font-weight: bold;
+      background: rgba(255,255,255,0.85);
       padding: 15px 25px;
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
 
     @keyframes pulse {
@@ -59,13 +58,12 @@
 </head>
 <body>
   <div class="heart" onclick="zeigeNachricht()">❤️</div>
-  <div class="text">Ich hab dich ganz doll lieb, Mama!<br>Du bist die Beste 💐</div>
-  <div class="message" id="nachricht">Ich liebe dich, Mama! 💖</div>
+  <div class="text">Ich hab dich ganz doll lieb, Mama!</div>
+  <div id="nachricht" class="message">Ich liebe dich, Mama! 💖</div>
 
   <script>
     function zeigeNachricht() {
-      const nachricht = document.getElementById("nachricht");
-      nachricht.style.display = "block";
+      document.getElementById("nachricht").style.display = "block";
     }
   </script>
 </body>
