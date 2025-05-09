@@ -45,8 +45,8 @@
       opacity: 0;
       transform: translateY(-100vh);
       transition: transform 2s ease, opacity 2s ease;
-      line-height: 1.6;
-      white-space: pre-line;
+      line-height: 1.8;
+      white-space: pre-line; /* WICHTIG für echte Zeilenumbrüche */
       display: none;
     }
 
@@ -66,25 +66,25 @@
 Liebe Mama,  
 du bist das Beste, was mir je passiert ist.  
 Du hast mir immer gezeigt, was wahre Liebe und Fürsorge bedeuten.  
-Du bist immer für mich da, und deine Stärke inspiriert mich jeden Tag.  
+Du bist immer für mich da.  
+Deine Stärke inspiriert mich jeden Tag.  
 Ich danke dir für alles, was du für mich getan hast.  
-Dafür, dass du so eine wunderbare Mutter bist.  
+Danke, dass du so eine wunderbare Mutter bist.  
 Ich liebe dich mehr, als Worte es je ausdrücken könnten. 💐❤️
   </div>
 
   <script>
     function zeigeLiebesText() {
       const textBlock = document.getElementById("textBlock");
-      textBlock.style.display = "block"; // zeigt das Element überhaupt erst
+      textBlock.style.display = "block";
       setTimeout(() => {
         textBlock.style.opacity = 1;
-        textBlock.style.transform = "translateY(0)"; // animiert nach unten
+        textBlock.style.transform = "translateY(0)";
       }, 100);
 
-      // Seite scrollt erst, wenn die Animation fertig ist
       setTimeout(() => {
         window.scrollTo({ top: textBlock.offsetTop, behavior: "smooth" });
-      }, 2200); // ca. 2s nach Start
+      }, 2200);
     }
   </script>
 </body>
