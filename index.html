@@ -57,10 +57,10 @@
       margin-right: auto;
       opacity: 0;
       transform: translateY(-100vh);
-      animation: slideDown 3s forwards;
-      line-height: 1.6;         /* Zeilenhöhe für bessere Lesbarkeit */
-      word-wrap: break-word;    /* Wörter umbrechen */
-      white-space: normal;      /* Ganz wichtig: Text soll umbrechen! */
+      transition: transform 2s ease, opacity 2s ease;
+      line-height: 1.6;
+      white-space: pre-line; /* GANZ WICHTIG: Zeilenumbrüche erkennen */
+      display: none;
     }
 
     @keyframes pulse {
@@ -73,53 +73,37 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    @keyframes slideDown {
-      from {
-        transform: translateY(-100vh);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
   </style>
 </head>
 <body>
   <div class="container">
     <div class="heart" onclick="zeigeLiebesText()">❤️</div>
-    <div id="liebessatz" class="message hidden">Mama, ich habe dich lieb 💖</div>
   </div>
 
   <div id="textBlock" class="love-text">
-    <p>
-      Liebe Mama,  
-      du bist das Beste, was mir je passiert ist.  
-      Du hast mir immer gezeigt, was wahre Liebe und Fürsorge bedeuten.  
-      Du bist immer für mich da, und deine Stärke inspiriert mich jeden Tag.  
-      Ich danke dir für alles, was du für mich getan hast,  
-      und dafür, dass du so eine wunderbare Mutter bist.  
-      Ich liebe dich mehr, als Worte es je ausdrücken könnten. 💐❤️
-    </p>
+Liebe Mama,  
+du bist das Beste, was mir je passiert ist.  
+Du hast mir immer gezeigt, was wahre Liebe und Fürsorge bedeuten.  
+Du bist immer für mich da, und deine Stärke inspiriert mich jeden Tag.  
+Ich danke dir für alles, was du für mich getan hast.  
+Dafür, dass du so eine wunderbare Mutter bist.  
+Ich liebe dich mehr, als Worte es je ausdrücken könnten. 💐❤️
   </div>
 
   <script>
     function zeigeLiebesText() {
-      const nachricht = document.getElementById("liebessatz");
-      nachricht.classList.remove("hidden");
-
       const textBlock = document.getElementById("textBlock");
-      textBlock.style.opacity = 1;
+      textBlock.style.display = "block";      // sichtbar machen
+      setTimeout(() => {
+        textBlock.style.opacity = 1;
+        textBlock.style.transform = "translateY(0)";
+      }, 100); // kleine Verzögerung, damit Übergang wirkt
 
+      // automatisch runterscrollen
       setTimeout(() => {
         window.scrollTo({ top: textBlock.offsetTop, behavior: "smooth" });
-      }, 3000);
+      }, 2100); // nach Animation
     }
   </script>
-</body>
-</html>
-
 </body>
 </html>
