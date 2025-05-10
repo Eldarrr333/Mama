@@ -88,45 +88,11 @@
   <div id="textBlock" class="love-text">
     Liebe Mama,  
     du bist das Beste, was uns passiert ist.  
-    Du hast uns immer gezeigt was Liebe bedeutet.  
+    Du hast uns immer gezeigt, was Liebe bedeutet.  
     Du warst immer für uns da.  
-    Ich danke dir für alles was du für mich getan hast.  
+    Ich danke dir für alles, was du für mich getan hast.  
     Danke, dass du die beste Mutter der Welt bist.  
     Ich liebe dich mehr als alles andere auf dieser Welt. 💐❤️
   </div>
 
-  <audio id="backgroundMusic" preload="auto" muted>
-    <source src="https://cdn.pixabay.com/audio/2023/03/09/audio_9c86700db2.mp3" type="audio/mpeg">
-    Dein Browser unterstützt kein Audio.
-  </audio>
-
-  <script>
-    function zeigeLiebesText() {
-      const textBlock = document.getElementById("textBlock");
-
-      // Wenn schon sichtbar, abbrechen
-      if (textBlock.style.visibility === "visible") return;
-
-      textBlock.style.visibility = "visible";
-      textBlock.style.pointerEvents = "auto";
-
-      setTimeout(() => {
-        textBlock.style.opacity = 1;
-        textBlock.style.transform = "translateY(0)";
-      }, 100);
-
-      setTimeout(() => {
-        window.scrollTo({ top: textBlock.offsetTop, behavior: "smooth" });
-      }, 2200);
-
-      const music = document.getElementById("backgroundMusic");
-      music.muted = false;
-      music.play().catch(() => {
-        console.log("Musik konnte nicht automatisch abgespielt werden.");
-      });
-      music.loop = true;
-      music.volume = 0.4;
-    }
-  </script>
-</body>
-</html>
+  <audio id="backgroundMusic" preload="
