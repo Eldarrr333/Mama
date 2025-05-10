@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Für Mama</title>
   <style>
     body {
@@ -63,6 +64,18 @@
       50% { transform: scale(1.1); }
       100% { transform: scale(1); }
     }
+
+    @media (max-width: 600px) {
+      .heart {
+        font-size: 140px;
+      }
+      .title {
+        font-size: 28px;
+      }
+      .love-text {
+        font-size: 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -82,8 +95,7 @@
     Ich liebe dich mehr, als Worte es je ausdrücken könnten. 💐❤️
   </div>
 
-  <!-- 🎵 Ruhige Musik -->
-  <audio id="backgroundMusic" preload="auto">
+  <audio id="backgroundMusic" preload="auto" muted>
     <source src="https://cdn.pixabay.com/audio/2023/03/09/audio_9c86700db2.mp3" type="audio/mpeg">
     Dein Browser unterstützt kein Audio.
   </audio>
@@ -91,6 +103,10 @@
   <script>
     function zeigeLiebesText() {
       const textBlock = document.getElementById("textBlock");
+
+      // Verhindert Mehrfachanzeigen
+      if (textBlock.style.display === "block") return;
+
       textBlock.style.display = "block";
       setTimeout(() => {
         textBlock.style.opacity = 1;
@@ -101,8 +117,8 @@
         window.scrollTo({ top: textBlock.offsetTop, behavior: "smooth" });
       }, 2200);
 
-      // Musik abspielen
       const music = document.getElementById("backgroundMusic");
+      music.muted = false;
       music.play().catch(() => {
         console.log("Musik konnte nicht automatisch abgespielt werden.");
       });
