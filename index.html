@@ -95,4 +95,39 @@
     Ich liebe dich mehr als alles andere auf dieser Welt. 💐❤️
   </div>
 
-  <audio id="backgroundMusic" preload="
+  <audio id="backgroundMusic" preload="auto">
+    <source src="https://cdn.pixabay.com/audio/2023/03/09/audio_9c86700db2.mp3" type="audio/mpeg">
+    Dein Browser unterstützt kein Audio.
+  </audio>
+
+  <script>
+    function zeigeLiebesText() {
+      const textBlock = document.getElementById("textBlock");
+
+      if (textBlock.style.visibility === "visible") return;
+
+      textBlock.style.visibility = "visible";
+      textBlock.style.pointerEvents = "auto";
+
+      setTimeout(() => {
+        textBlock.style.opacity = 1;
+        textBlock.style.transform = "translateY(0)";
+      }, 100);
+
+      setTimeout(() => {
+        window.scrollTo({ top: textBlock.offsetTop, behavior: "smooth" });
+      }, 2200);
+
+      const music = document.getElementById("backgroundMusic");
+
+      // Musik nur abspielen, wenn Nutzer geklickt hat
+      music.play().then(() => {
+        music.loop = true;
+        music.volume = 0.4;
+      }).catch(err => {
+        console.warn("Musik konnte nicht abgespielt werden:", err);
+      });
+    }
+  </script>
+</body>
+</html>
