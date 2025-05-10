@@ -56,7 +56,8 @@
       transition: transform 2s ease, opacity 2s ease;
       line-height: 1.8;
       white-space: pre-line;
-      display: none;
+      visibility: hidden;
+      pointer-events: none;
     }
 
     @keyframes pulse {
@@ -104,10 +105,12 @@
     function zeigeLiebesText() {
       const textBlock = document.getElementById("textBlock");
 
-      // Verhindert Mehrfachanzeigen
-      if (textBlock.style.display === "block") return;
+      // Wenn schon sichtbar, abbrechen
+      if (textBlock.style.visibility === "visible") return;
 
-      textBlock.style.display = "block";
+      textBlock.style.visibility = "visible";
+      textBlock.style.pointerEvents = "auto";
+
       setTimeout(() => {
         textBlock.style.opacity = 1;
         textBlock.style.transform = "translateY(0)";
